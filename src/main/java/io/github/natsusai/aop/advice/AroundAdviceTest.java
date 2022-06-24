@@ -1,14 +1,16 @@
-package com.abc.advice;
+package io.github.natsusai.aop.advice;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Aspect
+@Component
 public class AroundAdviceTest {
-    @Around(value="execution(* com.abc.service.*.around*(..))")
+    @Around(value="execution(* io.github.natsusai.aop.service.*.around*(..))")
     public Object process(ProceedingJoinPoint point) throws Throwable {
         System.out.println("模拟执行目标方法前的增强处理：事务开始...");
         //修改目标方法的参数
